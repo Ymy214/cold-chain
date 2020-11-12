@@ -1,0 +1,67 @@
+#web服务器配置
+server:
+  port: 8081  #优先级低于application.properties当中的server.port=8088
+#springboot配置
+spring:
+  #开发环境dev，测试环境test，生产环境pro
+  profiles:
+    active: dev
+  #数据库链接配置
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/moocdb?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver  #默认会根据url识别
+    #整合Druid配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
+    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  #配置模板引擎
+  thymeleaf:
+    cache: false
+  #配置redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+
+#配置分页工具
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: false  #pageSize=0
+
+#配置mybatis
+mybatis:
+  #必须要有，为了配置xml文件中resultType返回值的包位置，如果未配置请在<mapper namespace>使用全包名com.***.***.pojo.***
+  type-aliases-package: com.example.springdatajdbc.pojo
+  #必须要有，寻找mapper xml配置文件，指定sql映射文件
+  mapper-locations: classpath:mapper/*.xml
+  #开启驼峰命名法的理解支持
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+#"classpath:/META-INF/resources/"
+#"classpath:/resources/"
+#"classpath:/static/"
+#"classpath:/public/"
