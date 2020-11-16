@@ -9,12 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel("部门实体类")
-public class Dept {
+@ApiModel("测验表实例")
+public class Test {
 
-    @ApiModelProperty("部门编号")
-    private Integer id;
-    @ApiModelProperty("部门名字")
-    private String deptName;
+    @ApiModelProperty("id")
+    private int id;
+    @ApiModelProperty("测验标题")
+    private String title;
+    @ApiModelProperty("所属课程")
+    private String course_id;
+
 
 }

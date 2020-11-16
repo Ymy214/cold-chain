@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("/test-api")
 public class TestController {
 
     @RequestMapping("/thymeleaf")
