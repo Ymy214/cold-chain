@@ -1,3 +1,4 @@
+/**
 package com.example.springdatajdbc.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 @Configuration
 public class DruidConfig {
 
@@ -53,4 +55,7 @@ public class DruidConfig {
         return  bean;
     }
 
+
 }
+*/
+

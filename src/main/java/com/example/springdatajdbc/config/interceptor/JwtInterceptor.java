@@ -1,4 +1,4 @@
-package com.example.springdatajdbc.interceptor;
+package com.example.springdatajdbc.config.interceptor;
 
 import com.example.springdatajdbc.utils.JwtNeedToken;
 import com.example.springdatajdbc.utils.JwtUtil;

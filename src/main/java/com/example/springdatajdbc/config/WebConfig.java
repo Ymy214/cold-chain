@@ -1,6 +1,6 @@
 package com.example.springdatajdbc.config;
 
-import com.example.springdatajdbc.interceptor.JwtInterceptor;
+import com.example.springdatajdbc.config.interceptor.JwtInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

@@ -1,6 +1,6 @@
 package com.example.springdatajdbc;
 
-import com.alibaba.druid.pool.DruidDataSource;
+import com.zaxxer.hikari.HikariDataSource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,9 +25,9 @@ class SpringDataJdbcApplicationTests {
         Connection connection = dataSource.getConnection();
         System.out.println(connection);
 
-        DruidDataSource druidDataSource = (DruidDataSource) dataSource;
-        System.out.println("druidDataSource 数据源最大连接数："+druidDataSource.getMaxActive());
-        System.out.println("druidDataSource 数据源初始化连接数："+druidDataSource.getInitialSize());
+        HikariDataSource hikariDataSource = (HikariDataSource) dataSource;
+        System.out.println("druidDataSource 数据源最大连接数："+hikariDataSource.getMaximumPoolSize());
+        System.out.println("druidDataSource 数据源初始化连接数："+hikariDataSource.getMinimumIdle());
 
         //关闭连接
         connection.close();
@@ -42,5 +42,29 @@ class SpringDataJdbcApplicationTests {
         //操作数据
         stringRedisTemplate.opsForValue().append("msg","hello ,success redis");  //在msg后加上字符串
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
