@@ -14,4 +14,7 @@ public interface DeptMapper {
     //根据id获取部门信息
     Dept getDept(Integer id);
 
+
+
+
 }

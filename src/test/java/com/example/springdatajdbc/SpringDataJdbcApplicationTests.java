@@ -24,11 +24,9 @@ class SpringDataJdbcApplicationTests {
         //获得链接
         Connection connection = dataSource.getConnection();
         System.out.println(connection);
-
         HikariDataSource hikariDataSource = (HikariDataSource) dataSource;
         System.out.println("druidDataSource 数据源最大连接数："+hikariDataSource.getMaximumPoolSize());
         System.out.println("druidDataSource 数据源初始化连接数："+hikariDataSource.getMinimumIdle());
-
         //关闭连接
         connection.close();
 

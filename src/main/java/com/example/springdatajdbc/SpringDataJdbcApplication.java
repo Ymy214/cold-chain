@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@MapperScan({"com.example.*.mapper", "com.example.*.dao"})
+//@MapperScan({"com.example.*.mapper*", "com.example.*.dao*"})
 public class SpringDataJdbcApplication {
 
     public static void main(String[] args) {

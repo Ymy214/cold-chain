@@ -1,4 +1,4 @@
-{
+[{
   "pageIndex": 1,
   "pageSize": 15,
   "hasCount": true,
@@ -11,4 +11,14 @@
   "sort": [
 
   ]
+},
+
+
+{
+eq, ne,
+gt, ge,
+lt, le,
+between, notbetween,
+like, notlike,
+likeleft, likeright
 }
