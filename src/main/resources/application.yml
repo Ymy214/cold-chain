@@ -41,7 +41,7 @@ spring:
       - classpath:/static/
       - classpath:/public/
       - classpath:/upload/
-      -
+
 #配置分页工具
 pagehelper:
   helperDialect: mysql
@@ -51,13 +51,15 @@ pagehelper:
 
 #配置mybatis
 mybatis-plus:
-  #必须要有，为了配置xml文件中resultType返回值的包位置，如果未配置请在<mapper namespace>使用全包名com.***.***.pojo.***
+  #必须要有，为了配置xml文件中resultType返回值的包位置，如果未配置请在<mapper namespace>使用全包名com.***.***.pojo.***（mybatis）
   type-aliases-package: com.example.springdatajdbc.pojo
-  #必须要有，寻找mapper xml配置文件，指定sql映射文件
+  #必须要有，寻找mapper xml配置文件，指定sql映射文件(mybatis)
   mapper-locations: classpath:mapper/*.xml
   #开启驼峰命名法的理解支持
   configuration:
     map-underscore-to-camel-case: true
+    #mybatis-plus的日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 

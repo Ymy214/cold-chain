@@ -1,5 +1,6 @@
 package com.example.springdatajdbc.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.springdatajdbc.pojo.Dept;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +14,7 @@ public interface DeptMapper {
 
     //根据id获取部门信息
     Dept getDept(Integer id);
+
 
 
 
