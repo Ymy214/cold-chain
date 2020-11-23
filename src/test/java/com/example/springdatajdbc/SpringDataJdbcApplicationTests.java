@@ -114,8 +114,40 @@ class SpringDataJdbcApplicationTests {
     @Test
     public void testPageSelect() {
         //参数1，当前页   参数2，页面大小
-        courseMapper.selectPage(new Page<Course>(3, 15), null).getRecords().forEach(System.out::println);
+        courseMapper.selectPage(new Page<Course>(2, 15), null).getRecords().forEach(System.out::println);
     }
+
+    //----------------物理删除--------------
+    //测试删除
+    @Test
+    public void testDeleteById() {
+        exampleMapper.deleteById(9L);
+
+    }
+
+    //测试批量通过id删除
+    @Test
+    public void testDeleteBatchId() {
+        //------------逻辑删除---------------deleted=0，1通过逻辑来废弃，弃用，失效
+        exampleMapper.deleteBatchIds(Arrays.asList(1L, 2L, 3L));
+        //如果没有配置逻辑删除的字段deleted，测试删除不通过，原因呢是存在外键，不能级联删除
+        //如果配置了逻辑删除并加上了字段deleted，那么删除变为update，查询加上条件deleted
+    }
+
+
+    //测试批量通过id删除
+    @Test
+    public void testDeleteMap() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("example", "问题1");
+        map.put("solution", "52452");
+        //删除同时满足以上两条件的记录
+        //DELETE FROM example WHERE solution = ? AND example = ?
+        exampleMapper.deleteByMap(map);
+
+    }
+
+
 
 
 

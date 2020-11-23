@@ -1,5 +1,6 @@
 package com.example.springdatajdbc.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class Course {
     @ApiModelProperty("课程介绍")
     private String intro;
     @ApiModelProperty("是否已删除")
+    @TableLogic
     private int isdeleted;
     @ApiModelProperty("课程封面")
     private String cover;

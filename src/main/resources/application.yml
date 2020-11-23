@@ -12,7 +12,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/moocdb?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/moocdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver  #默认会根据url识别
     #Hikari配置
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -33,7 +33,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 1
-  #其实不用写，看源码，默认就是这几个，ssm配置习惯了
+  #其实不用写，看源码，默认就是这几个
   resources:
     static-locations:
       - classpath:/META-INF/resources/
@@ -42,12 +42,6 @@ spring:
       - classpath:/public/
       - classpath:/upload/
 
-#配置分页工具
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  pageSizeZero: false  #pageSize=0
 
 #配置mybatis
 mybatis-plus:
@@ -60,6 +54,12 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     #mybatis-plus的日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #逻辑删除
+  global-config:
+    db-config:
+      logic-delete-field: deleted  #全局实体逻辑删除字段：按照名字为deleted的字段
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 
 

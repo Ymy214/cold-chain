@@ -7,18 +7,6 @@
 
     ]
 
-  },
-  "sort": [
-
-  ]
-},
+  }
 
 
-{
-eq, ne,
-gt, ge,
-lt, le,
-between, notbetween,
-like, notlike,
-likeleft, likeright
-}
